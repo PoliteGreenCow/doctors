@@ -1,0 +1,79 @@
+/* Header.css */
+
+/* Global styles */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+.swiper {
+  padding-bottom: 70px !important;
+}
+
+.swiper-slide.swiper-slide-next {
+  background: #0067FF;
+  border-radius: 12px;
+  box-shadow: 0px 20px 70px rgba(0, 103, 255, 0.3) !important;
+}
+
+.swiper-slide.swiper-slide-next h4,
+.swiper-slide.swiper-slide-next p {
+  color: #fff !important;
+}
+
+.swiper-pagination {
+  top: 90%;
+}
+.sticky__header {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  position: sticky;
+  top: 0%;
+  left: 0%;
+  z-index: 99999;
+  background: white;
+  box-shadow: 3px 3px -8px 3px #ddd;
+}
+
+/* Media Query for Mobile View */
+@media only screen and (max-width: 768px) {
+  .navigation {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.84); /* Semi-transparent black background */
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    background: #fff;
+    line-height: 30px;
+    transform: translateX(100%); /* Initially off-screen */
+    transition: transform 0.3s ease-in-out; /* Smooth sliding animation */
+  }
+
+  .show__menu  {
+    transform: translateX(0); /* Slide in from right */
+  }
+}
