@@ -7,6 +7,7 @@ import authRoute from './Routes/authRoutes.js'
 import userRoute from './Routes/userRoutes.js'
 import doctorRoute from './Routes/doctorRoutes.js'
 import reviewRoute from './Routes/reviewRoutes.js'
+
 dotenv.config()
 
 const app = express()
@@ -40,7 +41,7 @@ app.use(cors(corsOptions))
 
 app.use('/api/v1/auth', authRoute)
 app.use('/api/v1/users', userRoute)
-app.use('/api/v1/doctor', doctorRoute)
+app.use('/api/v1/doctor',doctorRoute)
 app.use('/api/v1/reviews', reviewRoute)
 
 

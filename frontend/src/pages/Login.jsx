@@ -1,5 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Ensure you import Link
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; // Ensure you import Link
+import { BASE_URL } from '../config';
+import { toast } from 'react-toastify';
+import { authContext } from '../Context/authContext';
+import HashLoader from 'react-spinners/HashLoader';
+
+
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -7,9 +14,53 @@ const Login = () => {
     password: ''
   });
 
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
+  const {dispatch} = useContext(authContext)
+
   const handleInputChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const submitHandler = async event => {
+
+    
+    event.preventDefault()
+    setLoading(true)
+
+    try {
+      const res = await fetch(`${BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+      })
+
+      const {message, data, token, role} = await res.json()
+      if(!res.ok){
+        throw new Error(message)
+      }
+
+      dispatch({
+        type:"LOGIN_SUCCESS",
+        payload:{
+          user:data,
+          token:token,
+          role:role
+        }
+
+      })
+      console.log({data, token, role} ,'login data')
+
+      setLoading(false)
+      toast.success(message)
+      navigate('/home')
+
+    } catch(err) {
+      toast.error(err.message)
+      setLoading(false)
+    }
+  }
 
   return (
     <section className='px-5 lg:px-0'>
@@ -17,7 +68,7 @@ const Login = () => {
         <h3 className='text-headingColor text-[22px] leading-9 font-bold mb-10'>
           Hello <span className='text-primaryColor'>Welcome</span> Back!
         </h3>
-        <form className='py-4 md:py-0'>
+        <form className='py-4 md:py-0' onSubmit={submitHandler}>
           <div className='mb-5'>
             <input
               type='email'
@@ -45,7 +96,8 @@ const Login = () => {
               type='submit'
               className='w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3'
             >
-              Login
+            { loading ?   <HashLoader size={25} color='#fff' /> : 'Login' }
+
             </button>
           </div>
           <p className='mt-5 text-textColor text-center'>
