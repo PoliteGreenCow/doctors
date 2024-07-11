@@ -86,6 +86,7 @@ const DoctorsDetails = () => {
               <div className='mt-[50px]'>
                 {tab === 'about' && <DoctorAbout name={name} about={about} qualifications ={qualifications} experiences={experiences} />}
                 {tab === 'feedback' && <Feedback reviews={reviews} totalRating={totalRating} />}
+               
               </div>
             </div>
 

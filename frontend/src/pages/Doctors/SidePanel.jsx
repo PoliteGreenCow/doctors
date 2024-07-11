@@ -1,5 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
+
  const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
+const navigate = useNavigate()
+    const Appointment =() => {
+        navigate(`/doctors/booking/${doctorId}`)
+    }
+
     return (
         <div className='shadow-panelShadow p-3 lg:p-5 rounded-md'>
             <div className='flex items-center justify-between'>
@@ -34,7 +42,7 @@ import React from 'react'
                 </ul>
             </div>
 
-            <button className='btn px-2 w-full rounded-md'>Book Appointment</button>
+            <button onClick={Appointment} className='btn px-2 w-full rounded-md'>Book Appointment</button>
         </div>
     )
  }
