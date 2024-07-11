@@ -75,21 +75,21 @@ const quickLinks03 = [
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className='bg-blue-500 pb-16 pt-10'>
+    <footer className='bg-white pb-16 pt-10 mt-auto'> {/* Use 'mt-auto' to stick to bottom */}
       <div className="container mx-auto px-4">
         <div className='flex flex-col md:flex-row justify-between flex-wrap gap-6 md:gap-4'>
           <div className='flex-1'>
             <img src={logo} alt='logo' className='mx-auto md:mx-0' />
-            <p className='text-[16px] leading-7 font-[400] text-white mt-4 text-center md:text-left'>
+            <p className='text-[16px] leading-7 font-[400] text-black mt-4 text-center md:text-left'>
               Copyright &copy; {year} developed by Group 10. All rights reserved.
             </p>
           </div>
           <div className='flex-1'>
-            <h3 className='text-[20px] font-semibold text-white text-center md:text-left'>Quick Links</h3>
+            <h3 className='text-[20px] font-semibold text-black text-center md:text-left'>Quick Links</h3>
             <ul className='text-center md:text-left'>
               {quickLinks01.map((item, index) => (
                 <li key={index} className='mt-2'>
-                  <Link to={item.path} className='text-[16px] text-white'>
+                  <Link to={item.path} className='text-[16px] text-black'>
                     {item.display}
                   </Link>
                 </li>
@@ -97,11 +97,11 @@ const Footer = () => {
             </ul>
           </div>
           <div className='flex-1'>
-            <h3 className='text-[20px] font-semibold text-white text-center md:text-left'>Quick Links</h3>
+            <h3 className='text-[20px] font-semibold text-black text-center md:text-left'>Quick Links</h3>
             <ul className='text-center md:text-left'>
               {quickLinks02.map((item, index) => (
                 <li key={index} className='mt-2'>
-                  <Link to={item.path} className='text-[16px] text-white'>
+                  <Link to={item.path} className='text-[16px] text-black'>
                     {item.display}
                   </Link>
                 </li>
@@ -109,11 +109,11 @@ const Footer = () => {
             </ul>
           </div>
           <div className='flex-1'>
-            <h3 className='text-[20px] font-semibold text-white text-center md:text-left'>Quick Links</h3>
+            <h3 className='text-[20px] font-semibold text-black text-center md:text-left'>Quick Links</h3>
             <ul className='text-center md:text-left'>
               {quickLinks03.map((item, index) => (
                 <li key={index} className='mt-2'>
-                  <Link to={item.path} className='text-[16px] text-white'>
+                  <Link to={item.path} className='text-[16px] text-black'>
                     {item.display}
                   </Link>
                 </li>
@@ -121,7 +121,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='flex-1'>
-            <h3 className='text-[20px] font-semibold text-white text-center md:text-left'>Follow Us</h3>
+            <h3 className='text-[20px] font-semibold text-black text-center md:text-left'>Follow Us</h3>
             <div className='flex justify-center md:justify-start gap-4 mt-4'>
               {socialLinks.map((item, index) => (
                 <a
@@ -129,7 +129,7 @@ const Footer = () => {
                   href={item.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className='group text-white hover:text-primaryColor'
+                  className='group text-black hover:text-primaryColor'
                 >
                   {item.icon}
                 </a>
