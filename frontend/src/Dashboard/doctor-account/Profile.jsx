@@ -26,19 +26,19 @@ const Profile = ({ doctorData }) => {
     useEffect(() => {
         if (doctorData) {
             setFormData({
-                name: doctorData.name || '',
-                email: doctorData.email || '',
-                phone: doctorData.phone || '',
-                password: doctorData.password || "",
-                bio: doctorData.bio || '',
-                gender: doctorData.gender || '',
-                specialization: doctorData.specialization || '',
-                ticketPrice: doctorData.ticketPrice || 0,
-                qualifications: doctorData.qualifications || [{ startingDate: "", endingDate: "", degree: "", university: "" }],
-                experiences: doctorData.experiences || [{ startingDate: "", endingDate: "", position: "", hospital: "" }],
-                timeSlots: doctorData.timeSlots || [{ day: "", startingTime: "", endingTime: "" }],
-                about: doctorData.about || '',
-                photo: doctorData.photo || null
+                name: doctorData?.name || '',
+                email: doctorData?.email || '',
+                phone: doctorData?.phone || '',
+                password: doctorData?.password || "",
+                bio: doctorData?.bio || '',
+                gender: doctorData?.gender || '',
+                specialization: doctorData?.specialization || '',
+                ticketPrice: doctorData?.ticketPrice || 0,
+                qualifications: doctorData?.qualifications || [{ startingDate: "", endingDate: "", degree: "", university: "" }],
+                experiences: doctorData?.experiences || [{ startingDate: "", endingDate: "", position: "", hospital: "" }],
+                timeSlots: doctorData?.timeSlots || [{ day: "", startingTime: "", endingTime: "" }],
+                about: doctorData?.about || '',
+                photo: doctorData?.photo || null
             });
         }
     }, [doctorData]);

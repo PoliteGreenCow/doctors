@@ -61,7 +61,7 @@ const DoctorsDetails = () => {
                     </span>
                   </div>
                   <p className='text__para text-[14px] leading-5 md:text-[15px] lg:max-w-[390px]'>
-                    "Welcome to our hospital! Your health is our priority. Schedule your appointment today for personalized care."
+                   {bio}
                   </p>
                 </div>
               </div>

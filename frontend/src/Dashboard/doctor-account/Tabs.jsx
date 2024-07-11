@@ -52,13 +52,13 @@ const Tabs = ({tab, setTab}) =>{
 
             <div>
           
-                                <button className="mt-[50px] w-full bg-[#181a1e] p-3 text-[16px] leading-7 rounded-md text-white" onClick={handleLogout}>
-                                    Logout
-                                </button>
-                                <button className="w-full bg-red-600 p-3 text-[16px] leading-7 rounded-md text-white mt-[30px] mb-[30px]">
-                                    Delete account
-                                </button>
-                            </div>      
+                <button className="mt-[50px] w-full bg-[#181a1e] p-3 text-[16px] leading-7 rounded-md text-white" onClick={handleLogout}>
+                    Logout
+                </button>
+                <button className="w-full bg-red-600 p-3 text-[16px] leading-7 rounded-md text-white mt-[30px] mb-[30px]">
+                    Delete account
+                </button>
+            </div>      
         </div>
     </div>
 }
