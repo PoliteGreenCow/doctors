@@ -1,5 +1,6 @@
 import React from 'react'
  const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
+
     return (
         <div className='shadow-panelShadow p-3 lg:p-5 rounded-md'>
             <div className='flex items-center justify-between'>

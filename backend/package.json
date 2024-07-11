@@ -1,7 +1,7 @@
 {
   "name": "medicare-booking",
   "version": "1.0.0",
-  "type":"module",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,6 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
@@ -19,6 +18,9 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.4.5"
-  }
+    "mongoose": "^8.4.5",
+    "stripe": "^16.2.0"
+  },
+  "devDependencies": {},
+  "description": ""
 }

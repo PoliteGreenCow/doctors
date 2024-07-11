@@ -45,7 +45,7 @@ const Home = () => {
             <div className='lg:w-[600px]'>
               <div className='mt-[30px] lg:mt-0'>
                 <img src={heroImg02} alt="Image 2" className='w-[300px] lg:w-[100%] mb-[30px] lg:mb-[30px] h-[300px] rounded-lg shadow-xl' />
-                <img src={heroImg03} alt="Image 3" className='w-full lg:w-[100%] h-auto rounded-lg shadow-xl' />
+                <img src={heroImg03} alt="Image 3" className='w-[300px]  h-[300px] lg:w-[100%]  rounded-lg shadow-xl' />
               </div>
             </div>
 
@@ -229,7 +229,7 @@ const Home = () => {
         <div className='container mx-auto'>
           <div className='flex flex-col lg:flex-row gap-[50px]'>
             <div className='w-full lg:w-1/2 hidden md:block'>
-              <img src={faqImg} alt='FAQ Image' className='w-full rounded-lg shadow-lg' />
+              <img src={faqImg} alt='FAQ Image' className='w-[500px] h-auto rounded-lg shadow-lg' />
             </div>
             <div className='w-full lg:w-1/2'>
               <h2 className='heading'>
