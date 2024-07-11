@@ -10,8 +10,8 @@ const DoctorCard = ({ doctor }) => {
         totalRating,
         photo,
         specialization,
-        totalPatients,
-        hospital
+      
+        experiences
     } = doctor;
 
     return (
@@ -38,14 +38,14 @@ const DoctorCard = ({ doctor }) => {
             
             <div className='mt-[18px] lg:mt-5 flex items-center justify-between'>
                 <div>
-                    <h3 className='text-[16px] leading-7 lg:text-[18px] lg:leading-[30px] font-semibold text-headingColor'>
+                    {/* <h3 className='text-[16px] leading-7 lg:text-[18px] lg:leading-[30px] font-semibold text-headingColor'>
                        +{totalPatients} patients
-                    </h3>
+                    </h3> */}
                     <p className='text-[14px] loading-6 font-[400] text-textColor'>
-                        At {hospital}
+                        At {experiences && experiences[0] ?.hospital}
                     </p>
                     <Link
-                        to='/doctors' 
+                        to={`/doctors/${doctor._id} `}
                         className='flex items-center justify-center w-[44px] h-[44px] text-lg border border-solid border-[#181A1E] mt-[30px] mx-auto
                         group hover:bg-primaryColor hover:border-none'>
                             
