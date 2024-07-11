@@ -9,7 +9,7 @@ import Doctors from './pages/Doctors/Doctors';
 import DoctorsDetails from './pages/Doctors/DoctorsDetails';
 import MyAccount from './Dashboard/user-account/MyAccount';
 import DoctorAccount from './Dashboard/doctor-account/DoctorAccount';
-
+import Booking from './components/bookingAppointment'
 
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 
@@ -28,7 +28,9 @@ const App = () => {
         <Route path="/contact" element={<Layout> <Contact /> </Layout>} />
         <Route path="/services" element={ <Layout> <Services /> </Layout>} />
         <Route path="/users/profile/me" element={<ProtectedRoute allowedRoles={['patient']}> <Layout> <MyAccount /> </Layout></ProtectedRoute> } />
+       
         <Route path="/doctors/profile/me" element={<ProtectedRoute allowedRoles={['doctor']}> <Layout> <DoctorAccount /> </Layout></ProtectedRoute> } />
+        <Route path='/doctors/booking/:id' element={ <Layout> <Booking /> </Layout>} />
       </Routes>
     </Router>
   );

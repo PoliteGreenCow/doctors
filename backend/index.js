@@ -7,6 +7,7 @@ import authRoute from './Routes/authRoutes.js'
 import userRoute from './Routes/userRoutes.js'
 import doctorRoute from './Routes/doctorRoutes.js'
 import reviewRoute from './Routes/reviewRoutes.js'
+import bookingRoute from './Routes/bookingRoutes.js'
 
 
 dotenv.config()
@@ -21,6 +22,7 @@ const corsOptions = {
 app.get('/', (req, res) => {
     res.send('API is working')
 })
+
 
 // database connection
 mongoose.set('strictQuery', false)
@@ -44,6 +46,7 @@ app.use('/api/v1/auth', authRoute)
 app.use('/api/v1/users', userRoute)
 app.use('/api/v1/doctors',doctorRoute)
 app.use('/api/v1/reviews', reviewRoute)
+app.use('/api/v1/bookings', bookingRoute)
 
 
 

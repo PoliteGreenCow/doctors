@@ -3,16 +3,18 @@ import mongoose from "mongoose";
 const bookingSchema = new mongoose.Schema(
   {
     doctor: {
-      type: mongoose.Types.ObjectId,
-      ref: "Doctor",
+      type: String,
+      
       required: true,
     },
     user: {
-      type: mongoose.Types.ObjectId,
-      ref: "User",
+      type: String, // Assuming user is identified by email
       required: true,
     },
-    ticketPrice: { type: String, required: true },
+    ticketPrice: { 
+      type: String, 
+      required: true 
+    },
     appointmentDate: {
       type: Date,
       required: true,
