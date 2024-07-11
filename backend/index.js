@@ -41,7 +41,7 @@ app.use(cors(corsOptions))
 
 app.use('/api/v1/auth', authRoute)
 app.use('/api/v1/users', userRoute)
-app.use('/api/v1/doctor',doctorRoute)
+app.use('/api/v1/doctors',doctorRoute)
 app.use('/api/v1/reviews', reviewRoute)
 
 

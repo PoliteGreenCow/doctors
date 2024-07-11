@@ -59,24 +59,35 @@ export const getAllDoctor = async(req, res) => {
     }
 }
 
-export const getDoctorProfile = async(req, res) =>{
-    const doctorId = req.userId
+export const getDoctorProfile = async (req, res) => {
+    const doctorId = req.userId;
+    
+    console.log(`Attempting to fetch doctor profile for ID: ${doctorId}`);
 
-    try{
-        const doctor = await Doctor.findById(userId)
+    try {
+        const doctor = await Doctor.findById(doctorId).select('-password');
 
-        if(!doctor){
-            return res.status(404).json({success:false, message:"Doctor not found"})
+        if (!doctor) {
+            console.log(`Doctor not found for ID: ${doctorId}`);
+            return res.status(404).json({
+                success: false, 
+                message: "Doctor not found"
+            });
         }
-        const {password, ...rest} = doctor._doc
-        const appointments = await Booking.find({doctor:doctorId})
 
-        res
-        .status(200)
-        .json({success: true, message: "Profile info is getting",
-        data: { ...rest }
-        })
-    } catch(err) {
-        res.status(500).json({success:false, message: "Something went wrong, cannot get"})
+        console.log(`Doctor profile retrieved successfully for ID: ${doctorId}`);
+
+        res.status(200).json({
+            success: true,
+            message: "Profile info retrieved successfully",
+            data: doctor
+        });
+    } catch (err) {
+        console.error(`Error in getDoctorProfile for ID ${doctorId}:`, err);
+        res.status(500).json({
+            success: false, 
+            message: "Something went wrong, cannot get profile",
+            error: process.env.NODE_ENV === 'development' ? err.message : undefined
+        });
     }
-}
+};
