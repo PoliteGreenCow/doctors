@@ -3,13 +3,10 @@ import { useNavigate } from 'react-router-dom'
 
 
  const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
- <<<<<<< HEAD
-=======
 const navigate = useNavigate()
     const Appointment =() => {
         navigate(`/doctors/booking/${doctorId}`)
     }
->>>>>>> ab783f3dafaeb555644461c442372fba845a030e
  
     return (
         <div className='shadow-panelShadow p-3 lg:p-5 rounded-md bg-[#F4F8FB]'>
