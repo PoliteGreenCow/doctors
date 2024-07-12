@@ -15,11 +15,13 @@ const ServiceCard = ({ item, index }) => {
       </p>
 
       <div className='flex items-center justify-between mt-4 lg:mt-5'>
-        <Link
-          to='/doctors' 
-          className='flex items-center justify-center w-9 h-9 lg:w-10 lg:h-10 text-lg border border-solid border-[#181A1E] mt-4 lg:mt-5 mx-auto group hover:bg-primaryColor hover:border-none'>
-          <BsArrowRight className='group-hover:text-white w-6 h-5 lg:w-7 lg:h-6'/>
-        </Link>
+      <Link
+           to='/doctors' 
+          className='flex items-center justify-center w-[44px] h-[44px] text-lg border border-solid border-[#181A1E] mt-[30px] mx-auto
+          group hover:bg-primaryColor hover:border-none rounded-full'
+          >
+          <BsArrowRight className='group-hover:text-white w-6 h-5'/>
+          </Link>
         <span 
           className='w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center text-sm lg:text-base leading-9 lg:leading-10 font-semibold'
           style={{

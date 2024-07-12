@@ -6,6 +6,7 @@ import ServicesList from '../components/Services/ServiceList';
 import DoctorList from '../components/Doctors/DoctorList';
 import FaqList from '../components/faq/FaqsList';
 import Testimonial from '../components/Testimonial/Testimonial';
+import Booking from '../components/bookingAppointment';
 import heroImg01 from '../assets/images/hero-img01.png';
 import heroImg02 from '../assets/images/hero-img02.png';
 import heroImg03 from '../assets/images/hero-img03.png';
@@ -17,9 +18,10 @@ import featureImg from '../assets/images/feature-img.png';
 import videoIcon from '../assets/images/video-icon.png';
 import avatarIcon from '../assets/images/avatar-icon.png';
 
+
 const Home = () => {
   return (
-    <>
+    < div className="bg-[#F4F8FB]">
       <section className='hero__section pt-[40px] pb-[40px] px-[30px] lg:px-[50px] xl:px-[90px] 2xl:h-[800px] bg-[#F4F8FB]'>
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row lg:gap-[70px] items-start justify-between">
@@ -34,7 +36,7 @@ const Home = () => {
                 that true health encompasses all aspects of life. By staying at the forefront of medical advancements and 
                 continuously improving our practices, we aim to offer the highest quality of care. 
               </p>
-              <Link to='/appointment'>
+              <Link to='/doctors/booking/:id'>
                 <button className='btn mt-4 text-lg bg-primaryColor text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-primaryColorDark transition-colors duration-300'>
                   Book Appointment
                 </button>
@@ -42,17 +44,18 @@ const Home = () => {
             </div>
 
             {/* Hero images */}
-            <div className='lg:w-[600px]'>
-              <div className='mt-[30px] lg:mt-0'>
-                <img src={heroImg02} alt="Image 2" className='w-[300px] lg:w-[100%] mb-[30px] lg:mb-[30px] h-[300px] rounded-lg shadow-xl' />
-                <img src={heroImg03} alt="Image 3" className='w-full lg:w-[100%] h-auto rounded-lg shadow-xl' />
-              </div>
+            <section className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
+            {/* Images on the Left */}
+            <div className="flex flex-col justify-between lg:w-[300px]">
+              <img src={heroImg02} alt="Image 2" className="w-full h-auto rounded-lg shadow-xl mb-6 lg:mb-4" />
+              <img src={heroImg03} alt="Image 3" className="w-full h-auto rounded-lg shadow-xl" />
             </div>
-
+            
             {/* Main Hero Image */}
-            <div className='flex justify-end lg:w-[600px]'>
-              <img src={heroImg01} alt="Hero Image" className='w-full md:max-w-[500px] lg:max-w-[600px] h-auto rounded-lg shadow-xl mb-6 lg:mb-0' />
+            <div className="flex justify-end lg:w-[600px] lg:ml-4">
+              <img src={heroImg01} alt="Hero Image" className="w-[200px] md:max-w-[500px] lg:max-w-none lg:w-[600px] h-auto lg:max-h-[calc(100%)] rounded-lg shadow-xl" />
             </div>
+          </section>
           </div>
         </div>
       </section>
@@ -178,7 +181,7 @@ const Home = () => {
                 </li>
               </ul>
               <Link to='/about'>
-                <button className='btn mt-4'>Learn More</button>
+              <button className="btn mt-4 p-2">Learn More</button>
               </Link>
             </div>
 
@@ -204,7 +207,7 @@ const Home = () => {
                 <div className='flex items-center mt-2'>
                   <img src={avatarIcon} alt='Avatar' className='w-8 h-8 rounded-full' />
                   <h4 className='text-[10px] leading-3 font-bold ml-2'>
-                    Rashid Kimani
+                    Claire Tunnings
                   </h4>
                 </div>
               </div>
@@ -229,7 +232,7 @@ const Home = () => {
         <div className='container mx-auto'>
           <div className='flex flex-col lg:flex-row gap-[50px]'>
             <div className='w-full lg:w-1/2 hidden md:block'>
-              <img src={faqImg} alt='FAQ Image' className='w-full rounded-lg shadow-lg' />
+              <img src={faqImg} alt='FAQ Image' className='w-[500px] h-auto rounded-lg shadow-lg' />
             </div>
             <div className='w-full lg:w-1/2'>
               <h2 className='heading'>
@@ -251,7 +254,7 @@ const Home = () => {
           <Testimonial />
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

@@ -70,7 +70,7 @@ const Signup = () => {
     }
   }
 
-  return <section className='px-5 xl:px-0'>
+  return <section className='px-5 xl:px-0 bg-[#F4F8FB]'>
     <div className='max-w-[1170px] mx-auto'>
       <div className='grid grid-cols-1 lg:grid-cols-2'>
         <div className='hidden lg:block bg-primaryColor rounded-l-lg'>

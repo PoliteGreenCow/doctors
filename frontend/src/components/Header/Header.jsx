@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import logo from '../../assets/images/logo.png';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { BiMenu } from 'react-icons/bi';
 import { authContext } from '../../Context/authContext';
 
@@ -23,6 +23,7 @@ const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const { user, role, token } = useContext(authContext);
+  const location = useLocation();
 
   const handleStickyHeader = () => {
     const handleScroll = () => {
@@ -72,10 +73,12 @@ const Header = () => {
                   <NavLink
                     to={link.path}
                     className='text-black text-base md:text-lg leading-7 font-medium hover:text-primaryColor relative'
-                    activeClassName='text-[#4ADAB7] font-bold border-b-[#4ADAB7] border-opacity-0 group-hover:border-opacity-100'
+                    activeClassName='text-primaryColor font-bold border-b-[#4ADAB7] border-opacity-0 group-hover:border-opacity-100'
                   >
                     {link.display}
-                    <span className='absolute bottom-0 left-0 w-full h-0.5 bg-transparent border-b-[#4ADAB7] transition-all opacity-0 group-hover:opacity-100' />
+                    {location.pathname === link.path && (
+                      <span className='absolute bottom-0 left-0 w-full h-0.5 bg-primaryColor transition-all opacity-100' />
+                    )}
                   </NavLink>
                 </li>
               ))}
@@ -83,11 +86,8 @@ const Header = () => {
                 <li>
                   <NavLink
                     to='/doctors'
-                    className={(navClass) =>
-                      navClass.isActive
-                        ? 'text-primaryColor text-base md:text-lg leading-7 font-bold'
-                        : 'text-primaryColor text-base md:text-lg leading-7 font-medium hover:text-secondaryColor'
-                    }
+                    className='text-black text-base md:text-lg leading-7 font-medium hover:text-primaryColor relative'
+                    activeClassName='text-primaryColor font-bold border-b-[#4ADAB7] border-opacity-0 group-hover:border-opacity-100'
                   >
                     Find a Doctor
                   </NavLink>
@@ -97,26 +97,24 @@ const Header = () => {
           </div>
           {/* nav right */}
           <div className='flex items-center gap-4'>
-
-              {
-                token && user ?  (<div>
+            {token && user ? (
+              <div>
                 <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
                   <figure className='w-[35px] h-[35px] rounded-full cursor-pointer'>
-                    <img src={user?.photo} className="w-full rounded-full" alt="User" />
+                    <img src={user?.photo} className='w-full rounded-full' alt='User' />
                   </figure>
                 </Link>
-              </div> ):( <Link to='/login'>
-              <button className='bg-primaryColor py-2 text-white
-                font-[600] h-[44px] flex items-center 
+              </div>
+            ) : (
+              <Link to='/login'>
+                <button className='bg-primaryColor py-3 px-4 text-white
+                font-semibold h-[50px] flex items-center 
                 justify-center rounded-[8px]'>
-                Login
-              </button>
-            </Link> )
-              }
+                  Login
+                </button>
+              </Link>
+            )}
 
-           
-              
-            
             <span className='md:hidden' onClick={toggleMenu}>
               <BiMenu className='w-6 h-6 cursor-pointer' />
             </span>

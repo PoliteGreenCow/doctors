@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import patientAvatar from '../../assets/images/patient-avatar.png';
+import patientAvatar01 from '../../assets/images/patient-avatar01.png';
 import { HiStar } from 'react-icons/hi';
 
 const Testimonial = () => {
@@ -56,7 +57,7 @@ const Testimonial = () => {
         <SwiperSlide>
           <div className='py-[30px] px-5 rounded-3'>
             <div className='flex items-center gap-[13px]'>
-              <img src={patientAvatar} alt="patient avatar" />
+              <img src={patientAvatar01} alt="patient avatar" />
               <div>
                 <h4 className='text-[10px] leading-[30px] font-semibold text-headingColor'>
                   Aisha Ali

@@ -59,7 +59,8 @@ const Booking = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8">
+    <div className="bg-[#F4F8FB]">
+    <div className="max-w-md mx-auto mt-8 bg-[#F4F8FB]">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="text-2xl font-bold mb-6 text-center">Book an Appointment</h2>
 
@@ -132,6 +133,7 @@ const Booking = () => {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

@@ -20,7 +20,7 @@ const Doctors = () => {
   return (
     <>
     <section>
-      <div className='bg-[#fff9ea]'>
+      <div className='bg-[#F4F8FB]'>
         <div className='container text-center py-8'>
           <h2 className='heading text-3xl font-bold'>Find a Doctor</h2>
           <div className='max-w-[570px] mt-[30px] mx-auto bg-gray-300 rounded-md flex items-center justify-between'>
