@@ -32,7 +32,7 @@ export const getSingleDoctor = async(req, res) => {
         const doctor = await Doctor.findById(id, ).populate("reviews").select("-password")
         res.status(200).json({success:true, message:"doctor found", data:doctor})
     } catch(err) {
-        res.status(404),json({ success:false, message:"No doctor found"})
+        res.status(404).json({ success:false, message:"No doctor found"})
     }
 }
 // Get All doctors

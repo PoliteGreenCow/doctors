@@ -16,6 +16,7 @@ const MyAccount = () => {
 
     const handleLogout = () => {
         dispatch({ type: 'LOGOUT' });
+        localStorage.removeItem('token')
     };
     
 

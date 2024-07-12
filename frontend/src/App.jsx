@@ -10,7 +10,6 @@ import DoctorsDetails from './pages/Doctors/DoctorsDetails';
 import MyAccount from './Dashboard/user-account/MyAccount';
 import DoctorAccount from './Dashboard/doctor-account/DoctorAccount';
 import Booking from './components/bookingAppointment'
-import HealthTrack from './pages/HealthTrack';
 
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 
@@ -33,6 +32,8 @@ const App = () => {
        
         <Route path="/doctors/profile/me" element={<ProtectedRoute allowedRoles={['doctor']}> <Layout> <DoctorAccount /> </Layout></ProtectedRoute> } />
         <Route path='/doctors/booking/:id' element={ <Layout> <Booking /> </Layout>} />
+        <Route path="/chat" element={<ChatBubble />} />
+
       </Routes>
     </Router>
   );

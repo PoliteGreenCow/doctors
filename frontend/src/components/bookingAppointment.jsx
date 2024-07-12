@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-
 import { useParams, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../config';
 
 const Booking = () => {
-
-const navigate = useNavigate()
+  const navigate = useNavigate()
   const { id } = useParams();
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
-    date: '',
-    time: '',
-    service: '',
+    appointmentDate: '',
+    appointmentTime: '',
     ticketPrice: '',
   });
 
@@ -27,15 +23,20 @@ const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Combine date and time into a single Date object
+    const appointmentDateTime = new Date(`${formData.appointmentDate}T${formData.appointmentTime}`);
+
     const appointmentData = {
       doctor: id,
-      user: formData.email, // Adjust based on your user identification
+      user: formData.email,
       ticketPrice: formData.ticketPrice,
-      appointmentDate: new Date(`${formData.date}T${formData.time}`),
+      appointmentDate: appointmentDateTime.toISOString(), // Send as ISO string
       status: 'pending',
       isPaid: true,
     };
-    console.log(appointmentData)
+
+    console.log('Appointment Data:', appointmentData);
+
     try {
       const response = await fetch(`${BASE_URL}/bookings`, {
         method: 'POST',
@@ -50,10 +51,10 @@ const navigate = useNavigate()
       }
 
       const data = await response.json();
-      console.log('Form submitted:', data);
+      console.log('Booking submitted:', data);
       navigate('/doctors')
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error submitting booking:', error);
     }
   };
 
@@ -62,21 +63,6 @@ const navigate = useNavigate()
     <div className="max-w-md mx-auto mt-8 bg-[#F4F8FB]">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="text-2xl font-bold mb-6 text-center">Book an Appointment</h2>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-            Name
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="name"
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
 
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
@@ -94,53 +80,34 @@ const navigate = useNavigate()
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="date">
-            Date
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="appointmentDate">
+            Appointment Date
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="date"
+            id="appointmentDate"
             type="date"
-            name="date"
-            value={formData.date}
+            name="appointmentDate"
+            value={formData.appointmentDate}
             onChange={handleChange}
             required
           />
         </div>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="time">
-            Time
+        {/* <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="appointmentTime">
+            Appointment Time
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="time"
+            id="appointmentTime"
             type="time"
-            name="time"
-            value={formData.time}
+            name="appointmentTime"
+            value={formData.appointmentTime}
             onChange={handleChange}
             required
           />
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="service">
-            Service
-          </label>
-          <select
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="service"
-            name="service"
-            value={formData.service}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select a service</option>
-            <option value="haircut">Haircut</option>
-            <option value="massage">Massage</option>
-            <option value="consultation">Consultation</option>
-          </select>
-        </div>
+        </div> */}
 
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="ticketPrice">
