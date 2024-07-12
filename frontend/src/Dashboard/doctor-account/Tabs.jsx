@@ -12,6 +12,7 @@ const Tabs = ({tab, setTab}) =>{
     const handleLogout =() => {
         dispatch({type:'LOGOUT'})
         navigate('/')
+        localStorage.removeItem('token')
     }
     
 
@@ -55,9 +56,7 @@ const Tabs = ({tab, setTab}) =>{
                 <button className="mt-[50px] w-full bg-[#181a1e] p-3 text-[16px] leading-7 rounded-md text-white" onClick={handleLogout}>
                     Logout
                 </button>
-                <button className="w-full bg-red-600 p-3 text-[16px] leading-7 rounded-md text-white mt-[30px] mb-[30px]">
-                    Delete account
-                </button>
+               
             </div>      
         </div>
     </div>

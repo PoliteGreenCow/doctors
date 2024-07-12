@@ -13,7 +13,7 @@ import Appointment from './Appointments'
 const DoctorAccount = () => {
 
     const {data,loading, error} = useGetProfile(`${BASE_URL}/doctors/profile/me`)
-
+    console.log('data', data._id)
     const [tab,setTab] = useState('overview')
     return <section>
         <div className='max-w-[1170px] px-5 mx-auto'>
@@ -65,7 +65,7 @@ const DoctorAccount = () => {
                                  }
                             </div>
 
-                        {tab === "appointments" && <div><Appointment appointments={data.appointments}/></div>}
+                        {tab === "appointments" && <div><Appointment doctor={data} /></div>}
                         {tab === "settings" && <div><Profile  doctorData={data}/></div>}
                         </div>
                     </div>
