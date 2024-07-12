@@ -6,7 +6,7 @@ import ServicesList from '../components/Services/ServiceList';
 import DoctorList from '../components/Doctors/DoctorList';
 import FaqList from '../components/faq/FaqsList';
 import Testimonial from '../components/Testimonial/Testimonial';
-import Booking from '../components/bookingAppointment';
+import HealthTrack from './HealthTrack';
 import heroImg01 from '../assets/images/hero-img01.png';
 import heroImg02 from '../assets/images/hero-img02.png';
 import heroImg03 from '../assets/images/hero-img03.png';
@@ -35,9 +35,9 @@ const Home = () => {
                 that true health encompasses all aspects of life. By staying at the forefront of medical advancements and 
                 continuously improving our practices, we aim to offer the highest quality of care. 
               </p>
-              <Link to='/doctors/booking/:id'>
+              <Link to='/healthtrack'>
                 <button className='btn mt-4 text-lg bg-primaryColor text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-primaryColorDark transition-colors duration-300'>
-                  Book Appointment
+                  Health Track here
                 </button>
               </Link>
             </div>
