@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
  const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
 <<<<<<< HEAD
- /* <<<<<<< HEAD
+  <<<<<<< HEAD
 =======
 =======
 >>>>>>> 19ec9250569f06a6ebf33067ab06cfe2cd4707cf
@@ -14,7 +14,7 @@ const navigate = useNavigate()
     }
 <<<<<<< HEAD
 >>>>>>> ab783f3dafaeb555644461c442372fba845a030e
-  */
+
 =======
  
 >>>>>>> 19ec9250569f06a6ebf33067ab06cfe2cd4707cf
