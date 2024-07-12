@@ -3,16 +3,16 @@ import { useNavigate } from 'react-router-dom'
 
 
  const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
-<<<<<<< HEAD
+ <<<<<<< HEAD
 =======
 const navigate = useNavigate()
     const Appointment =() => {
         navigate(`/doctors/booking/${doctorId}`)
     }
 >>>>>>> ab783f3dafaeb555644461c442372fba845a030e
-
+ 
     return (
-        <div className='shadow-panelShadow p-3 lg:p-5 rounded-md'>
+        <div className='shadow-panelShadow p-3 lg:p-5 rounded-md bg-[#F4F8FB]'>
             <div className='flex items-center justify-between'>
                 <p className='text__para mt-0 font-semibold'>Ticket Price</p>
                 <span className='text-[16px] leading-7 lg:text-[22px] lg:leading-8 text-headingColor font-bold'>{ticketPrice} BOT</span>
